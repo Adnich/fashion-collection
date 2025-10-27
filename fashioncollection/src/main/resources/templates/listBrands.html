@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fashion Collection - Brendovi</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+
+    <style>
+        body { font-family: Arial; margin: 40px; background: #fafafa; }
+        h1 { color: #333; }
+        table { width: 70%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 10px; border-bottom: 1px solid #ddd; text-align: left; }
+        a { text-decoration: none; color: #007bff; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+<h1>Brendovi u kolekciji</h1>
+<table>
+    <tr>
+        <th>Naziv</th>
+        <th>Država</th>
+        <th>Osnivač</th>
+        <th>Godina</th>
+        <th>Akcije</th>
+    </tr>
+    <tr th:each="brand : ${brands}">
+        <td th:text="${brand.name}"></td>
+        <td th:text="${brand.country}"></td>
+        <td th:text="${brand.founder}"></td>
+        <td th:text="${brand.foundedYear}"></td>
+        <td>
+            <a th:href="@{/products/{id}(id=${brand.id})}">Proizvodi</a> |
+            <a th:href="@{/brands/action/{id}(id=${brand.id})}">Akcija</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
