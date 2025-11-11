@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${brand.name} + ' - Proizvodi'">Proizvodi</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+
+    <style>
+        body { font-family: Arial; margin: 40px; background: #fafafa; }
+        h1 { color: #333; }
+        table { width: 70%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 10px; border-bottom: 1px solid #ddd; text-align: left; }
+        a { text-decoration: none; color: #007bff; }
+    </style>
+</head>
+<body>
+<h1 th:text="'Proizvodi brenda ' + ${brand.name}"></h1>
+<table>
+    <tr>
+        <th>Naziv</th>
+        <th>Kategorija</th>
+        <th>Boja</th>
+        <th>Cijena (KM)</th>
+    </tr>
+    <tr th:each="product : ${brand.products}">
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.category}"></td>
+        <td th:text="${product.color}"></td>
+        <td th:text="${product.price}"></td>
+    </tr>
+</table>
+<p><a href="/brands">← Nazad na brendove</a></p>
+</body>
+</html>

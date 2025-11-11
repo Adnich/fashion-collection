@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista proizvoda</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+
+    <style>
+        .actions-cell {
+            white-space: nowrap;
+        }
+
+        .actions-cell a {
+            margin: 0 5px;
+        }
+
+        .actions-cell form {
+            display: inline;
+            margin: 0;
+        }
+
+        .actions-cell button {
+            margin: 0;
+            padding: 8px 16px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Lista proizvoda</h2>
+
+<a href="/products/add">➕ Dodaj novi proizvod</a>
+
+
+<table>
+    <thead>
+    <tr>
+        <th>Naziv</th>
+        <th>Cijena</th>
+        <th>Boja</th>
+        <th>Kategorija</th>
+        <th>Brend</th>
+        <th>Akcije</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="p : ${products}">
+        <td th:text="${p.name}"></td>
+        <td th:text="${p.price}"></td>
+        <td th:text="${p.color}"></td>
+        <td th:text="${p.category.name}"></td>
+        <td th:text="${p.brand.name}"></td>
+        <td class="actions-cell">
+            <a th:href="@{/products/{id}(id=${p.id})}">Detalji</a>
+            |
+            <a th:href="@{/products/edit/{id}(id=${p.id})}">Uredi</a>
+            |
+            <form th:action="@{/products/delete/{id}(id=${p.id})}"
+                  method="post" style="display:inline;">
+                <button type="submit"
+                        onclick="return confirm('Da li sigurno želiš obrisati ovaj proizvod?')">
+                    Obriši
+                </button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fashion Collection</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<header>
+    <h1>Fashion Collection</h1>
+</header>
+
+<div class="container">
+    <h2>Dobrodošli u našu kolekciju</h2>
+    <p style="font-size: 1.1em; color: #555; line-height: 1.8; margin: 30px 0;">
+        Otkrijte ekskluzivnu kolekciju visokokvalitetnih modnih proizvoda od vodećih brendova.
+        Pregledajte naš asortiman, dodajte recenzije i upravljajte svojom omiljenom modom.
+    </p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px;">
+
+        <!-- Proizvodi kartica -->
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4); transition: all 0.3s ease; text-align: center;">
+            <div style="font-size: 3em; margin-bottom: 20px;">👗</div>
+            <h3 style="color: #fff; font-family: 'Playfair Display', serif; font-size: 1.8em; margin-bottom: 15px;">Proizvodi</h3>
+            <p style="color: rgba(255,255,255,0.9); margin-bottom: 25px; line-height: 1.6;">Pregledajte kompletnu listu proizvoda, dodajte nove ili uredite postojeće</p>
+            <a href="/products" style="background: #fff; color: #667eea; padding: 12px 30px; border-radius: 50px; font-weight: 600; display: inline-block; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">Otvori</a>
+        </div>
+
+        <!-- Brendovi kartica -->
+        <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(240, 147, 251, 0.4); transition: all 0.3s ease; text-align: center;">
+            <div style="font-size: 3em; margin-bottom: 20px;">🏷️</div>
+            <h3 style="color: #fff; font-family: 'Playfair Display', serif; font-size: 1.8em; margin-bottom: 15px;">Brendovi</h3>
+            <p style="color: rgba(255,255,255,0.9); margin-bottom: 25px; line-height: 1.6;">Istražite sve brendove u našoj kolekciji i njihove proizvode</p>
+            <a href="/listBrands" style="background: #fff; color: #f5576c; padding: 12px 30px; border-radius: 50px; font-weight: 600; display: inline-block; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">Otvori</a>
+        </div>
+
+        <!-- Kategorije kartica -->
+        <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(79, 172, 254, 0.4); transition: all 0.3s ease; text-align: center;">
+            <div style="font-size: 3em; margin-bottom: 20px;">📂</div>
+            <h3 style="color: #fff; font-family: 'Playfair Display', serif; font-size: 1.8em; margin-bottom: 15px;">Kategorije</h3>
+            <p style="color: rgba(255,255,255,0.9); margin-bottom: 25px; line-height: 1.6;">Upravljajte kategorijama proizvoda i organizujte asortiman</p>
+            <a href="/categories" style="background: #fff; color: #4facfe; padding: 12px 30px; border-radius: 50px; font-weight: 600; display: inline-block; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">Otvori</a>
+        </div>
+
+    </div>
+
+    <div style="margin-top: 60px; padding: 30px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(240, 147, 251, 0.1) 100%); border-radius: 15px; border-left: 5px solid #667eea;">
+        <h3 style="color: #1a1a2e; font-family: 'Playfair Display', serif; font-size: 1.5em; margin-bottom: 15px;">✨ Brzi pristup</h3>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-top: 20px;">
+            <a href="/products/add" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; padding: 10px 20px; border-radius: 50px; font-size: 0.95em;">➕ Dodaj proizvod</a>
+            <a href="/products" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: #fff; padding: 10px 20px; border-radius: 50px; font-size: 0.95em;">📋 Svi proizvodi</a>
+            <a href="/listBrands" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: #fff; padding: 10px 20px; border-radius: 50px; font-size: 0.95em;">🏷️ Svi brendovi</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Fashion Collection. Sva prava zadržana.</p>
+</footer>
+
+<style>
+    /* Hover efekti za kartice */
+    .container > div > div {
+        transition: transform 0.3s ease;
+    }
+
+    .container > div > div:hover {
+        transform: translateY(-10px) scale(1.02);
+    }
+
+    /* Dodatne animacije */
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    .container > div > div > div {
+        animation: float 3s ease-in-out infinite;
+    }
+
+    /* Responsivnost */
+    @media (max-width: 768px) {
+        .container > div {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+</body>
+</html><!-- src/main/resources/templates/index.html -->

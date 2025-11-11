@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Kategorije</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+
+    <style>
+        .form-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e8e8e8;
+        }
+
+        .form-section h3 {
+            font-family: 'Playfair Display', serif;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        form input[type="text"] {
+            padding: 12px 20px;
+            border: 2px solid #e8e8e8;
+            border-radius: 10px;
+            font-size: 1em;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+            min-width: 300px;
+        }
+
+        form input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        form button {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Kategorije</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Naziv</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="c : ${categories}">
+        <td th:text="${c.id}"></td>
+        <td th:text="${c.name}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="form-section">
+    <h3>Dodaj novu kategoriju:</h3>
+    <form method="post" th:action="@{/categories/add}">
+        <input type="text" name="name" placeholder="Naziv kategorije" required />
+        <button type="submit">Dodaj</button>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Rezultat akcije</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+
+    <style>
+        body { font-family: Arial; margin: 40px; background: #fafafa; }
+        h1, h2 { color: #333; }
+        a { text-decoration: none; color: #007bff; }
+    </style>
+</head>
+<body>
+<h1 th:text="${brand.name}"></h1>
+<h2 th:text="'Prosječna cijena proizvoda: ' + ${averagePrice} + ' KM'"></h2>
+<p><a href="/brands">← Nazad na brendove</a></p>
+</body>
+</html>

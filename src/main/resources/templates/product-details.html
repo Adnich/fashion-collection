@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalji proizvoda</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+
+</head>
+<body>
+
+<h2 th:text="${product.name}"></h2>
+<p><b>Cijena:</b> <span th:text="${product.price}"></span> KM</p>
+<p><b>Boja:</b> <span th:text="${product.color}"></span></p>
+<p><b>Kategorija:</b> <span th:text="${product.category.name}"></span></p>
+<p><b>Brend:</b> <span th:text="${product.brand.name}"></span></p>
+
+<hr>
+
+<h3>Recenzije</h3>
+
+<table border="1" cellpadding="6">
+    <tr>
+        <th>Autor</th>
+        <th>Komentar</th>
+        <th>Ocjena</th>
+    </tr>
+
+    <tr th:each="r : ${reviews}">
+        <td th:text="${r.author}"></td>
+        <td th:text="${r.comment}"></td>
+        <td th:text="${r.rating}"></td>
+    </tr>
+</table>
+
+<hr>
+
+<h3>Dodaj recenziju</h3>
+
+<form th:action="@{/products/{id}/reviews(id=${product.id})}" method="post" th:object="${newReview}">
+    <label>Ime autora:</label>
+    <input type="text" th:field="*{author}" required><br>
+
+    <label>Komentar:</label>
+    <input type="text" th:field="*{comment}" required><br>
+
+    <label>Ocjena (1-5):</label>
+    <input type="number" th:field="*{rating}" min="1" max="5" required><br>
+
+    <button type="submit">Sačuvaj recenziju</button>
+</form>
+
+<br>
+<a href="/products">↩ Nazad na listu</a>
+
+</body>
+</html>

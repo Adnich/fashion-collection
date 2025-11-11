@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj / Uredi proizvod</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+
+</head>
+
+<body>
+
+<h2 th:text="${product.id} == null ? '➕ Dodaj proizvod' : '✏️ Uredi proizvod'"></h2>
+
+<form th:action="@{/products/save}" th:object="${product}" method="post">
+
+    <!-- skriveno polje za ID -->
+    <input type="hidden" th:field="*{id}"/>
+
+    <label>Naziv:</label>
+    <input type="text" th:field="*{name}" required/>
+
+    <label>Cijena:</label>
+    <input type="number" th:field="*{price}" step="0.01" required/>
+
+    <label>Boja:</label>
+    <input type="text" th:field="*{color}" required/>
+
+    <label>Kategorija:</label>
+    <select th:field="*{category.id}" required>
+        <option value="" disabled>-- Odaberi kategoriju --</option>
+        <option th:each="c : ${categories}"
+                th:value="${c.id}"
+                th:text="${c.name}">
+        </option>
+    </select>
+
+
+    <label>Brend:</label>
+    <select th:field="*{brand.id}" required>
+        <option value="" disabled>-- Odaberi brend --</option>
+        <option th:each="b : ${brands}"
+                th:value="${b.id}"
+                th:text="${b.name}">
+        </option>
+    </select>
+
+
+    <br>
+    <button type="submit">Sačuvaj</button>
+    <a href="/products">↩ Nazad</a>
+
+</form>
+
+</body>
+</html>
