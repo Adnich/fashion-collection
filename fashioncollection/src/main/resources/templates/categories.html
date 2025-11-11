@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kategorije</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Kategorije</h2>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Naziv</th>
+        </tr>
+        <tr th:each="c : ${categories}">
+            <td th:text="${c.id}"></td>
+            <td th:text="${c.name}"></td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h3>Dodaj novu kategoriju</h3>
+    <form method="post" th:action="@{/categories/add}">
+        <input type="text" name="name" placeholder="Naziv kategorije" required />
+        <button type="submit">Dodaj</button>
+    </form>
+
+</div>
+
+</body>
+</html>

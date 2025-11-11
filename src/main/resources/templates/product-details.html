@@ -4,53 +4,63 @@
     <meta charset="UTF-8">
     <title>Detalji proizvoda</title>
     <link rel="stylesheet" th:href="@{/style.css}">
+<<<<<<< HEAD:src/main/resources/templates/product-details.html
 
+=======
+>>>>>>> 46041cd (povezano sa css-om):fashioncollection/src/main/resources/templates/product-details.html
 </head>
 <body>
 
-<h2 th:text="${product.name}"></h2>
-<p><b>Cijena:</b> <span th:text="${product.price}"></span> KM</p>
-<p><b>Boja:</b> <span th:text="${product.color}"></span></p>
-<p><b>Kategorija:</b> <span th:text="${product.category.name}"></span></p>
-<p><b>Brend:</b> <span th:text="${product.brand.name}"></span></p>
+<div class="container">
 
-<hr>
+    <h2 th:text="${product.name}"></h2>
 
-<h3>Recenzije</h3>
+    <p><b>Cijena:</b> <span th:text="${product.price}"></span> KM</p>
+    <p><b>Boja:</b> <span th:text="${product.color}"></span></p>
+    <p><b>Kategorija:</b> <span th:text="${product.category.name}"></span></p>
+    <p><b>Brend:</b> <span th:text="${product.brand.name}"></span></p>
 
-<table border="1" cellpadding="6">
-    <tr>
-        <th>Autor</th>
-        <th>Komentar</th>
-        <th>Ocjena</th>
-    </tr>
+    <hr>
 
-    <tr th:each="r : ${reviews}">
-        <td th:text="${r.author}"></td>
-        <td th:text="${r.comment}"></td>
-        <td th:text="${r.rating}"></td>
-    </tr>
-</table>
+    <h3>Recenzije</h3>
 
-<hr>
+    <table>
+        <thead>
+        <tr>
+            <th>Autor</th>
+            <th>Komentar</th>
+            <th>Ocjena</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="r : ${reviews}">
+            <td th:text="${r.author}"></td>
+            <td th:text="${r.comment}"></td>
+            <td th:text="${r.rating}"></td>
+        </tr>
+        </tbody>
+    </table>
 
-<h3>Dodaj recenziju</h3>
+    <hr>
 
-<form th:action="@{/products/{id}/reviews(id=${product.id})}" method="post" th:object="${newReview}">
-    <label>Ime autora:</label>
-    <input type="text" th:field="*{author}" required><br>
+    <h3>Dodaj recenziju</h3>
 
-    <label>Komentar:</label>
-    <input type="text" th:field="*{comment}" required><br>
+    <form th:action="@{/products/{id}/reviews(id=${product.id})}" method="post" th:object="${newReview}">
+        <label>Ime autora:</label>
+        <input type="text" th:field="*{author}" required>
 
-    <label>Ocjena (1-5):</label>
-    <input type="number" th:field="*{rating}" min="1" max="5" required><br>
+        <label>Komentar:</label>
+        <input type="text" th:field="*{comment}" required>
 
-    <button type="submit">Sačuvaj recenziju</button>
-</form>
+        <label>Ocjena (1-5):</label>
+        <input type="number" th:field="*{rating}" min="1" max="5" required>
 
-<br>
-<a href="/products">↩ Nazad na listu</a>
+        <button type="submit">Sačuvaj recenziju</button>
+    </form>
+
+    <a href="/products">↩ Nazad na listu</a>
+
+</div>
 
 </body>
 </html>

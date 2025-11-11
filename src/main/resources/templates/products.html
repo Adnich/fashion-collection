@@ -3,6 +3,7 @@
 <head>
     <title>Lista proizvoda</title>
     <link rel="stylesheet" th:href="@{/style.css}">
+<<<<<<< HEAD:src/main/resources/templates/products.html
 
     <style>
         .actions-cell {
@@ -24,27 +25,24 @@
             font-size: 0.9em;
         }
     </style>
+=======
+>>>>>>> 46041cd (povezano sa css-om):fashioncollection/src/main/resources/templates/products.html
 </head>
 
 <body>
 
-<h2>Lista proizvoda</h2>
+<div class="container">
 
+<<<<<<< HEAD:src/main/resources/templates/products.html
 <a href="/products/add">➕ Dodaj novi proizvod</a>
 
+=======
+    <h2>Lista proizvoda</h2>
+>>>>>>> 46041cd (povezano sa css-om):fashioncollection/src/main/resources/templates/products.html
 
-<table>
-    <thead>
-    <tr>
-        <th>Naziv</th>
-        <th>Cijena</th>
-        <th>Boja</th>
-        <th>Kategorija</th>
-        <th>Brend</th>
-        <th>Akcije</th>
-    </tr>
-    </thead>
+    <a href="/products/add" class="top-link">➕ Dodaj novi proizvod</a>
 
+<<<<<<< HEAD:src/main/resources/templates/products.html
     <tbody>
     <tr th:each="p : ${products}">
         <td th:text="${p.name}"></td>
@@ -68,6 +66,41 @@
     </tr>
     </tbody>
 </table>
+=======
+    <table>
+        <thead>
+        <tr>
+            <th>Naziv</th>
+            <th>Cijena</th>
+            <th>Boja</th>
+            <th>Kategorija</th>
+            <th>Brend</th>
+            <th>Akcije</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="p : ${products}">
+            <td th:text="${p.name}"></td>
+            <td th:text="${p.price}"></td>
+            <td th:text="${p.color}"></td>
+            <td th:text="${p.category.name}"></td>
+            <td th:text="${p.brand.name}"></td>
+            <td>
+
+                <a th:href="@{/products/{id}(id=${p.id})}">Detalji</a>
+                <a th:href="@{/products/edit/{id}(id=${p.id})}">Uredi</a>
+
+                <form th:action="@{/products/delete/{id}(id=${p.id})}" method="post" style="display:inline;">
+                    <button type="submit" onclick="return confirm('Da li sigurno želiš obrisati ovaj proizvod?')">Obriši</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+>>>>>>> 46041cd (povezano sa css-om):fashioncollection/src/main/resources/templates/products.html
 
 </body>
 </html>

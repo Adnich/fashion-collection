@@ -1,325 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+/* ============================================
+   FASHION COLLECTION - Modern Professional CSS
+   ============================================ */
 
+/* === GLOBAL RESET & VARIABLES === */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --secondary: #ec4899;
+    --accent: #f59e0b;
+    --dark: #1f2937;
+    --light: #f9fafb;
+    --gray: #6b7280;
+    --border: #e5e7eb;
+    --success: #10b981;
+    --danger: #ef4444;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* === BODY & BASE === */
 body {
-    font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-    background-attachment: fixed;
-    color: #2c3e50;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    position: relative;
-    overflow-x: hidden;
-}
-
-/* Dekorativni elementi */
-body::before {
-    content: '';
-    position: fixed;
-    top: -50%;
-    right: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: grain 8s steps(10) infinite;
-    pointer-events: none;
-    z-index: 0;
-}
-
-@keyframes grain {
-    0%, 100% { transform: translate(0, 0); }
-    10% { transform: translate(-5%, -10%); }
-    30% { transform: translate(3%, -15%); }
-    50% { transform: translate(12%, 9%); }
-    70% { transform: translate(9%, 4%); }
-    90% { transform: translate(-1%, 7%); }
-}
-
-/* Header - elegantan i luksuznan */
-header, h1 {
-    font-family: 'Playfair Display', serif;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    color: #fff;
-    text-align: center;
-    padding: 50px 20px;
-    width: 100%;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-    letter-spacing: 4px;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-header::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
-    box-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
-}
-
-header h1, h1 {
-    margin: 0;
-    font-size: 3.5em;
-    font-weight: 700;
-    text-transform: uppercase;
-    background: linear-gradient(135deg, #fff, #f093fb, #667eea);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0 0 30px rgba(240, 147, 251, 0.5);
-    animation: shimmer 3s ease-in-out infinite;
-}
-
-h2 {
-    font-family: 'Playfair Display', serif;
-    color: #1a1a2e;
-    font-size: 2em;
-    margin: 20px 0;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-}
-
-@keyframes shimmer {
-    0%, 100% { filter: brightness(1); }
-    50% { filter: brightness(1.3); }
-}
-
-/* Container - glamurozna kartica */
-.container, body > table, body > p, body > h1 + h2, body > h1 + h2 + p {
-    max-width: 1100px;
-    width: 90%;
-    margin: 50px auto;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px) saturate(180%);
-    border-radius: 25px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.5) inset;
-    padding: 50px;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 25px 70px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.5) inset;
-}
-
-/* Tabela - moderna i elegantna */
-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    margin-top: 30px;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-th {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    color: #fff;
-    padding: 18px 15px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 600;
-    font-size: 0.95em;
-    border: none;
-    position: relative;
-}
-
-th::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
-}
-
-td {
-    padding: 16px 15px;
-    border-bottom: 1px solid #e8e8e8;
-    text-align: center;
-    background: #fff;
-    transition: all 0.3s ease;
-    font-size: 0.95em;
-}
-
-tr {
-    transition: all 0.3s ease;
-}
-
-tr:hover td {
-    background: linear-gradient(135deg, #f8f9ff 0%, #fdf4ff 100%);
-    transform: scale(1.01);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.15);
-}
-
-tr:last-child td {
-    border-bottom: none;
-}
-
-/* Linkovi i akcije - sofisticirani */
-a {
-    color: #667eea;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 8px 16px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    display: inline-block;
-    position: relative;
-    overflow: hidden;
-}
-
-a::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    transition: left 0.3s ease;
-    z-index: -1;
-    border-radius: 8px;
-}
-
-a:hover {
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-}
-
-a:hover::before {
-    left: 0;
-}
-
-/* Separator između akcija */
-td a + a::before {
-    content: none;
-}
-
-/* Dugmad - luksuzna */
-button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #fff;
-    border: none;
-    padding: 14px 35px;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    font-size: 1.05em;
-    font-weight: 600;
-    margin-top: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-    position: relative;
-    overflow: hidden;
+    min-height: 100vh;
+    padding: 2rem;
+    color: var(--dark);
+    line-height: 1.6;
 }
 
-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
+/* === MAIN CONTAINER === */
+body > * {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    animation: fadeInUp 0.6s ease-out;
 }
 
-button:hover::before {
-    width: 300px;
-    height: 300px;
-}
-
-button:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.5);
-}
-
-button:active {
-    transform: translateY(-1px) scale(1.02);
-}
-
-/* Navigacijski linkovi */
-p a {
-    font-size: 1.1em;
-    padding: 10px 20px;
-    margin: 20px 0;
-}
-
-/* Footer - elegantan */
-footer {
-    text-align: center;
-    width: 100%;
-    padding: 30px 20px;
-    color: rgba(255,255,255,0.9);
-    font-size: 0.95em;
-    margin-top: auto;
-    background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(22, 33, 62, 0.8) 100%);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
-    position: relative;
-    z-index: 1;
-    letter-spacing: 1px;
-}
-
-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
-}
-
-/* Responsivnost */
-@media (max-width: 768px) {
-    header h1, h1 {
-        font-size: 2.2em;
-        letter-spacing: 2px;
-    }
-    
-    .container, body > table, body > p {
-        padding: 30px 20px;
-        margin: 30px auto;
-    }
-    
-    table {
-        font-size: 0.85em;
-    }
-    
-    th, td {
-        padding: 12px 8px;
-    }
-    
-    button {
-        padding: 12px 25px;
-        font-size: 0.95em;
-    }
-}
-
-/* Animacija učitavanja */
-@keyframes fadeIn {
+@keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -330,6 +57,359 @@ footer::before {
     }
 }
 
-table, .container {
-    animation: fadeIn 0.6s ease-out;
+/* === TYPOGRAPHY === */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: 1.4rem;
+    color: var(--dark);
+    margin: 1.5rem 0 1rem;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--gray);
+}
+
+/* === LINKS === */
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.top-link {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none !important;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.top-link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    filter: brightness(1.1);
+}
+
+/* === TABLES === */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 1.5rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+thead {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+}
+
+th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--dark);
+}
+
+tbody tr {
+    transition: var(--transition);
+    background: white;
+}
+
+tbody tr:hover {
+    background: var(--light);
+    transform: scale(1.01);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* === FORMS === */
+form {
+    background: var(--light);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    border: 2px solid var(--border);
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
+    background: white;
+    color: var(--dark);
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+input[type="hidden"] {
+    display: none;
+}
+
+/* === BUTTONS === */
+button,
+input[type="submit"] {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    margin-top: 1rem;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    filter: brightness(1.1);
+}
+
+button:active,
+input[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Delete button styling */
+button[onclick*="confirm"] {
+    background: linear-gradient(135deg, var(--danger), #dc2626);
+    margin-top: 0;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+button[onclick*="confirm"]:hover {
+    filter: brightness(1.15);
+}
+
+/* === AKCIJE (TABLE ACTIONS) === */
+td a {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background: var(--light);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+td a:hover {
+    background: var(--primary);
+    color: white !important;
+    border-color: var(--primary);
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+/* === INLINE FORMS (delete forms in tables) === */
+form[style*="inline"] {
+    display: inline-block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+/* === SEPARATORS === */
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 2rem 0;
+}
+
+/* === SPECIAL PRICE DISPLAY === */
+h2[th\:text*="Prosječna"] {
+    background: var(--light);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+    font-size: 1.5rem;
+}
+
+/* === BACK LINKS === */
+p > a[href*="Nazad"],
+a[href*="↩"] {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1.2rem;
+    background: var(--light);
+    border-radius: 8px;
+    border: 2px solid var(--border);
+    margin-top: 1.5rem;
+    transition: var(--transition);
+    font-weight: 600;
+}
+
+p > a[href*="Nazad"]:hover,
+a[href*="↩"]:hover {
+    background: var(--dark);
+    color: white !important;
+    border-color: var(--dark);
+    transform: translateX(-5px);
+}
+
+/* === HOME PAGE SPECIAL STYLING === */
+h1 + p > a {
+    display: block;
+    padding: 1rem;
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    margin: 0.8rem 0;
+    transition: var(--transition);
+    font-size: 1.1rem;
+}
+
+h1 + p > a:hover {
+    background: var(--primary);
+    color: white !important;
+    border-color: var(--primary);
+    transform: translateX(10px);
+    box-shadow: var(--shadow);
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    body > * {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 0.75rem;
+    }
+}
+
+/* === ANIMATIONS === */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.top-link {
+    animation: pulse 2s infinite;
+}
+
+/* === ACCESSIBILITY === */
+*:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* === PRINT STYLES === */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    body > * {
+        box-shadow: none;
+    }
+
+    button,
+    a[href*="Dodaj"],
+    form {
+        display: none;
+    }
 }
